@@ -1,0 +1,275 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Vaibhav Adsare
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{2pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% John Doe's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+   %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{VAIBHAV ADSARE}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:1234567890}{
+      \raisebox{-0.05\height} \faPhone\ +91 8575406800} ~ | ~
+    \href{mailto:user@domain.tld}{
+      \raisebox{-0.15\height} \faEnvelope\ vaibhavadsare3333@gmail.com} ~ | ~
+    \href{https://www.linkedin.com/in/vaibhav-adsare-b00a96237}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/vaibhav-adsare-b00a96237} ~ | ~
+    \href{https://github.com/Vaibhav-09032002}{
+      \raisebox{-0.15\height} \faGithub\ github.com/Vaibhav-09032002}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+  Detail-oriented team player with strong organizational skills. Ability to handle multiple projects simultaneously with a high degree of accuracy. Seeking a full-time position that offers professional challenges utilizing interpersonal skills, excellent time management, and problem-solving skills.
+
+  %--------%
+  % Skills %
+  %--------%
+
+ \section{Skills}
+
+\begin{description}[leftmargin=*, style=unboxed, itemsep=-2px, parsep=1pt]
+  \item[\textbf{Languages :}] C, Java, JavaScript, SQL
+  \item[\textbf{Web Development :}] HTML, CSS
+  \item[\textbf{Software Tools :}] VS code, Git  \& Github, Figma
+  \item[\textbf{Computer Science Fundamentals:}] Operating Systems, OOP, Data Structures and Algorithms (DSA), DBMS.
+\end{description}
+
+
+
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section*{Projects}
+
+\subsection*{Drain Block Test Jig (Internship Project)}
+\begin{itemize}
+    \item Designed and implemented the Drain Block Test Jig to evaluate the drainage system efficiency of refrigerators.
+    \item Collaborated with cross-functional teams to integrate the jig seamlessly into the product testing workflow.
+    \item Developed a user-friendly and cost-effective solution for identifying drainage blockages.
+    \item Contributed to improved product reliability and reduced maintenance costs.
+\end{itemize}
+
+\subsection*{Integrating IoT Cloud Technology for Control and Monitoring of Sensors}
+\begin{itemize}
+    \item Developed a project to leverage cloud-based IoT solutions for managing and observing sensor networks.
+    \item Utilized DHT11 sensors for temperature and humidity measurement.
+    \item Implemented IR sensors for motion detection.
+    \item Integrated the ESP8266 module for Wi-Fi connectivity to enable communication with the cloud.
+    \item Enabled real-time data collection, remote control, and automated monitoring through cloud integration.
+\end{itemize}
+
+\subsection*{Netflix Clone(Front End Website)}
+\begin{itemize}
+     \item Developed a Netflix clone focusing on front-end design using HTML and CSS.
+    \item Created a responsive user interface to replicate Netflix's modern design and user experience.
+    \item Utilized CSS for layout, media queries for responsiveness, and custom styling to mirror Netflix's layout.
+    \item Optimized the website for different screen sizes and devices, ensuring a seamless viewing experience across platforms.
+\end{itemize}
+
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{Bachelor of Technology in Electronics and Telecommunication (8.99 CGPA)}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Vishwakarma Institute Of Information Techonology,Pune [2020-2024]}{}
+
+  \headingBf{Higher Secondary Certification
+ Examination (74.14 percent)}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Janata Junior College,MH[2020]}{}
+
+ \headingBf{Secondary School Certification
+ Examination (89 percent)}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Vidyadham Prashala,Shirur[2018]}{}
+
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Experience}
+
+  \subsection*{Intern - Trainee Engineer}
+\textbf{Global Calibration} \hfill \textit{07/2023 - 12/2023, Pune}
+
+\begin{itemize}[itemsep=1pt, parsep=1pt]
+    \item Contributed to core electronics projects for LG Electronics and Voltas during my internship at Global Calibration.
+    \item Designed jigs to improve efficiency and precision in calibration methodologies.
+    \item Gained hands-on experience in electronics calibration processes and specialized tool creation.
+\end{itemize}
+
+\end{document}
